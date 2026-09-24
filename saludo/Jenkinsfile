@@ -1,0 +1,32 @@
+pipeline{
+    agent any
+    stages{
+        stage("A"){
+            steps{
+                echo "======== Hola mijines ========"
+            }
+            post{
+                always{
+                    echo "======== Esto siempre ejecuta ========"
+                }
+                success{
+                    echo "======== Esto si se ejecuta correctamente ========"
+                }
+                failure{
+                    echo "======== Esto si se ejecuta incorrectamente ========"
+                }
+            }
+        }
+    }
+    post{
+        always{
+            echo "======== Esto siempre ejecuta ========"
+        }
+        success{
+            echo "======== Esto si se ejecuta correctamente ========"
+        }
+        failure{
+            echo "======== Esto si se ejecuta incorrectamente ========"
+        }
+    }
+}
