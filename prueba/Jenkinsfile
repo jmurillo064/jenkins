@@ -25,11 +25,5 @@ pipeline {
                 sh "echo 'El instagram de mi esposa es: ${env.INSTAGRAM_SALOME}'"
             }
         }
-        stage("Imprimir variable de entorno") {
-            steps {
-                echo "${INSTAGRAM}"
-                sh "echo '$INSTAGRAM'"
-            }
-        }
     }
 }
