@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+    environment {
+        INSTAGRAM_SALOME="hisoydani"
+    }
+    stages {
+        stage("Saludo 1") {
+            steps {
+                echo "Hola mundo saludo 1"
+            }
+        }
+        stage("Saludo 2") {
+            steps {
+                echo "Hola mundo saludo 2 paso 1"
+                echo "Hola mundo saludo 2 paso 2"
+            }
+        }
+        stage("Imprimir instagram") {
+            steps {
+                echo "El instagram de mi esposa es: ${env.INSTAGRAM_SALOME}"
+                echo "El instagram de mi esposa es: $env.INSTAGRAM_SALOME"
+                echo "El instagram de mi esposa es: ${INSTAGRAM_SALOME}"
+                echo "El instagram de mi esposa es: $INSTAGRAM_SALOME"
+                sh "echo 'Hola mundo desde sh'"
+                sh "echo 'El instagram de mi esposa es: ${env.INSTAGRAM_SALOME}'"
+            }
+        }
+        stage("Imprimir variable de entorno") {
+            steps {
+                echo "${INSTAGRAM}"
+                sh "echo '$INSTAGRAM'"
+            }
+        }
+    }
+}
